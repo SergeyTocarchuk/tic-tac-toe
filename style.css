@@ -24,6 +24,13 @@
   cursor: pointer;
 }
 
+.result {
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px;
+}
+
 .playerX {
   color: #09C372;
 }

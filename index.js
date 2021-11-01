@@ -10,7 +10,7 @@ marks.forEach( (mark, index) => {
 })
 
 function userAction(mark, index){
-  if( isGameActive ){
+  if( isValidAction(mark) && isGameActive ){
     mark.innerText = currentPlayer;
     mark.classList.add(`player${currentPlayer}`);
     saveBoardIndex(index);
@@ -25,6 +25,13 @@ function saveBoardIndex(index){
 
 function changePlayer(){
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+}
+
+function isValidAction(mark){
+  if( mark.innerText === 'X' || mark.innerText === 'O' ){
+    return false;
+  }
+  return true;
 }
 
 function resultValidation(){
@@ -46,6 +53,9 @@ function resultValidation(){
     announceResult(currentPlayer === 'X' ? 'X' : 'O');
     isGameActive = false;
     return;
+  }
+  if( !board.includes('') ){
+    announceResult('tie');
   }
 }
 
