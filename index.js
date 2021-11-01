@@ -8,9 +8,14 @@ marks.forEach( (mark, index) => {
   mark.addEventListener('click', () => userAction(mark, index));
 })
 
-function userAction(mark){
+function userAction(mark, index){
   mark.innerText = currentPlayer;
   mark.classList.add(`player${currentPlayer}`);
+  saveBoardIndex(index);
+}
+
+saveBoardIndex(index){
+  board[index] = currentPlayer;
 }
 
 // Indexes within the board
