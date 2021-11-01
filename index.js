@@ -5,6 +5,8 @@ let isGameActive = true;
 const marks = Array.from(document.querySelectorAll('.mark'));
 const announcer = document.getElementById('announce-result');
 const playerTurn = document.getElementById('player-turn');
+const resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', reset);
 
 marks.forEach( (mark, index) => {
   mark.addEventListener('click', () => userAction(mark, index));
@@ -71,6 +73,19 @@ function announceResult(result){
   } else {
     announcer.innerText = 'Tie';
   }
+  announcer.classList.remove('hide');
+}
+
+function reset(){
+  isGameActive = true;
+  board = ["", "", "", "", "", "", "", "", ""];
+  announcer.classList.add('hide');
+  
+  marks.forEach(mark => {
+    mark.innerText = '';
+    mark.classList.remove('playerX');
+    mark.classList.remove('playerO');
+  })
 }
 
 // Indexes within the board

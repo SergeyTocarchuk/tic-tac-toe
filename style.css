@@ -31,10 +31,33 @@
   margin: 20px;
 }
 
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.controls button {
+  color: white;
+  background-color: orange;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  margin-left: 1em;
+  cursor: pointer;
+}
+
 .playerX {
   color: #09C372;
 }
 
 .playerO {
   color: #498AFB;
+}
+
+.hide {
+  display: none;
 }
