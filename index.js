@@ -4,6 +4,7 @@ let isGameActive = true;
 
 const marks = Array.from(document.querySelectorAll('.mark'));
 const announcer = document.getElementById('announce-result');
+const playerTurn = document.getElementById('player-turn');
 
 marks.forEach( (mark, index) => {
   mark.addEventListener('click', () => userAction(mark, index));
@@ -24,7 +25,10 @@ function saveBoardIndex(index){
 }
 
 function changePlayer(){
+  playerTurn.classList.remove(`player${currentPlayer}`);
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  playerTurn.innerText = currentPlayer;
+  playerTurn.classList.add(`player${currentPlayer}`);
 }
 
 function isValidAction(mark){
