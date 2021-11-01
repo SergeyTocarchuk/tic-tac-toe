@@ -12,10 +12,15 @@ function userAction(mark, index){
   mark.innerText = currentPlayer;
   mark.classList.add(`player${currentPlayer}`);
   saveBoardIndex(index);
+  changePlayer();
 }
 
-saveBoardIndex(index){
+function saveBoardIndex(index){
   board[index] = currentPlayer;
+}
+
+function changePlayer(){
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
 
 // Indexes within the board
